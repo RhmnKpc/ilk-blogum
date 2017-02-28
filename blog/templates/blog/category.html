@@ -1,0 +1,64 @@
+{% extends 'log/base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block meta_title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+<!-- SEO -->
+{% block og_title %}{{ title }}{% endblock %}
+{% block og_description %}{{ description }}{% endblock %}
+{% block og_url %}{{request.get_raw_uri}}{% endblock %}
+{% block og_site_name %}{{ web_site_name }} - {{ web_site_slogan }}{% endblock %}
+
+{% block category %}
+<li class="dropdown">
+          <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kategoriler <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              {% for i in category_db_list %}
+            <li><a href="/kategori/{{ i.seo_url }}">{{ i.category_name }}</a></li>
+              {% endfor %}
+          </ul>
+        </li>
+{% endblock %}
+{% block content %}
+	<!-- +++++ Welcome Section +++++ -->
+    {% for i in category_db %}
+	<div id="ww">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+
+					<h3><i class="{{ i.category_icon }}" aria-hidden="true"> {{ i.category_name }}</i></h3>
+                        <p>{{ i.category_description }}</p>
+
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+
+    {% endfor %}
+	<!-- +++++ Projects Section +++++ -->
+    {% if post_db %}
+        <div class="container pt">
+        <div class="row mt centered">
+            {% for i in post_db %}
+			<div class="col-lg-4">
+				<a class="zoom green" href="/{{ i.seo_url }}"><img width="500" height="200" src="/media/{{ i.image }}" alt="" /></a>
+				<p>{{ i.title }}</p>
+			</div>
+            {% endfor %}
+    {% endif %}
+		</div><!-- /row -->
+              <ul class="pagination pagination-lg pull-right">
+          {% for i in pages.page_range %}
+                <li><a href="{{ i }}">{{ i }}</a></li>
+          {% endfor %}
+      </ul>
+	</div><!-- /container -->
+
+{% endblock %}
+
+{% block last_content %}
+{% include 'blog_templates/last_content.html' %}
+{% endblock %}

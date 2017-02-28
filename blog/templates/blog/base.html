@@ -1,0 +1,66 @@
+{% load staticfiles %}
+
+<html>
+<head>
+    <title>Rahman'ın Bloğu</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet"
+          type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+<body>
+
+<nav class="navbar navbar-light bg-faded" role="navigation">
+    <div class="page-header">
+        <!-- This keeps the margins nice -->
+        <div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar"
+                    aria-controls="bs-navbar" aria-expanded="false">
+                <span>Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            </a>
+        </div>
+        <!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Rahman'ın Bloğu</a></li>
+                <li><a href="/hakkimda/">Hakkımda</a></li>
+                <li><a href="/iletisim/">İletişim</a></li>
+
+            </ul>
+            <div>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</nav><!-- End of Menubar -->
+
+<div class="row">
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+
+                {% block content %}
+
+
+                {% endblock %}
+
+            </div>
+            <br>
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
