@@ -25,7 +25,7 @@ SECRET_KEY = 'kvnuji8ddrz5sit71h%xoz-ezoc47=(b)$jkwa60=*oy+*)3t%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -113,7 +113,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

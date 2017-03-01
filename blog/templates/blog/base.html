@@ -1,52 +1,81 @@
 {% load staticfiles %}
-
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>Rahman'ın Bloğu</title>
     <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet"
           type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+
+     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <link href="{% static 'css/clean-blog.min.css'%}" rel="stylesheet">
+
+    <link href= "{% static 'vendor/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
 <body>
 
-<nav class="navbar navbar-light bg-faded" role="navigation">
-    <div class="page-header">
-        <!-- This keeps the margins nice -->
-        <div>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar"
-                    aria-controls="bs-navbar" aria-expanded="false">
-                <span>Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            </a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">Rahman'ın Blogu</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Anasayfa</a>
+                    </li>
+                    <li>
+                        <a href="/hakkimda/">Hakkında</a>
+                    </li>
+                    <li>
+                        <a href="/iletisim/">İletişim</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.navbar-header -->
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Rahman'ın Bloğu</a></li>
-                <li><a href="/hakkimda/">Hakkımda</a></li>
-                <li><a href="/iletisim/">İletişim</a></li>
+        <!-- /.container -->
+    </nav>
 
-            </ul>
-            <div>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                {% endif %}
-
+   <header class="intro-header" style="background-image: url('../../static/img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>İlk Web Sayfam</h1>
+                        <hr class="small">
+                        <span class="subheading">İlk Web Sayfam yayında..</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
 
-</nav><!-- End of Menubar -->
-
-<div class="row">
-    <div class="content container">
+<div class="container">
+    <div class="row">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
 
                 {% block content %}
 
@@ -58,8 +87,35 @@
         </div>
 
     </div>
+ </div>
+   <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <a target="_blank" title="follow me on twitter" href="https://www.twitter.com/rahmankapucu"><img alt="follow me on twitter" src="//login.create.net/images/icons/user/twitter_40x40.png" border=0></a>
+                        <a target="_blank" title="find us on Facebook" href="https://www.facebook.com/rahmankapucu"><img alt="follow me on facebook" src="//login.create.net/images/icons/user/facebook_40x40.png" border=0></a>
 
-</div>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Rkpc 2017</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../../static/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../../static/js/jqBootstrapValidation.js"></script>
+    <script src="../../static/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="../../static/js/clean-blog.min.js"></script>
 
 
 </body>

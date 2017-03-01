@@ -6,12 +6,11 @@
 
  {% for post in posts %}
 <div class="post">
-
             <div class="date">
                 {{ post.yayin_tarihi }}
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.baslik }}</a></h1>
-            <p>{{ post.yazi|safe|truncatewords:"75"|linebreaksbr}}<br><a href="{% url 'post_detail' pk=post.pk %}"class="btn btn-primary" role="button">Devamını Oku</a> </p>
+            <p>{{ post.yazi|safe|truncatewords:"30"|linebreaksbr}}<br><a href="{% url 'post_detail' pk=post.pk %}"class="btn btn-primary" role="button">Devamını Oku</a> </p>
 
         </div>
     {% endfor %}
