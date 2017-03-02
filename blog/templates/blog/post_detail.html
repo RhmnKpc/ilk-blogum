@@ -12,6 +12,6 @@
         {% endif %}
 
         <h1>{{ post.baslik }}</h1>
-        <p>{{ post.yazi|linebreaksbr }}</p>
+        <p>{{ post.yazi|safe }}</p>
     </div>
 {% endblock %}

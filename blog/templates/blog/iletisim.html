@@ -2,16 +2,15 @@
 
 {% block content %}
     <!-- Main Content -->
-
-                    <p>Aşağıdaki bilgileri doldurarak bana ulaşabilirsini</p>
+                    <p>Aşağıdaki bilgileri doldurarak bana ulaşabilirsiniz</p>
                     <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
                     <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
                     <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="sentMessage" id="contactForm"  method="post"  novalidate>{% csrf_token %}
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>İsim</label>
-                                <input type="text" class="form-control" placeholder="İsim" id="name" required
+                                <input type="text" class="form-control" placeholder="İsim" id="name" name="isim" required
                                        data-validation-required-message="Lütfen adınızı giriniz">
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -19,7 +18,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Mail Adresi</label>
-                                <input type="email" class="form-control" placeholder="Mail Adresi" id="email" required
+                                <input type="email" class="form-control" placeholder="Mail Adresi" id="email" name="mail" required
                                        data-validation-required-message="Lütfen mail adresinizi giriniz">
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -27,7 +26,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Telefon Numarası</label>
-                                <input type="tel" class="form-control" placeholder="Telefon Numarası" id="phone"
+                                <input type="tel" class="form-control" placeholder="Telefon Numarası" id="phone" name="phone"
                                        required data-validation-required-message="Lütfen telefon numaranızı giriniz">
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -35,7 +34,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Mesaj</label>
-                                <textarea rows="5" class="form-control" placeholder="Mesaj" id="message" required
+                                <textarea rows="5" class="form-control" placeholder="Mesaj" id="message" name="message" required
                                           data-validation-required-message="Lütfen Mesajınızı yazınız"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -48,5 +47,4 @@
                             </div>
                         </div>
                     </form>
-
 {% endblock %}
