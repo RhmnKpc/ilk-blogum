@@ -1,1 +1,1 @@
-# ilk-blogum
+# first django sample
